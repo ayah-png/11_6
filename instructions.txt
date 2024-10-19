@@ -1,0 +1,1 @@
+In order to access our main/home webpage, simply type in the url "https://ayah-png.github.io/11_6". This directly sends you to our main page, where you can access the other 4 webpages through the urls included in our "Reference Link" section.
