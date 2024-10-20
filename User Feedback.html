@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang = "eng">
+
+<head>
+		<meta charset = "utf-8">
+		<title> User Feedback </title>
+</head>
+
+<body>
+
+			
+			<h1> Submit any feedback you have here! </h1>
+			
+			<form method = "post" action = ""> <!-- will make it so that it sends all submissions to my email -->
+			
+	<table>
+		<tr>
+			
+			<td><label> Insert your name:</label></td>
+			<td><input type = "text" id = "name" size = "25" maxlength = "15" autofocus > </td>
+		</tr>	
+		<tr>	
+			<td><label> Enter your email:</label></td>
+			<td><input type = "email" placeholder = "user@mail.com" required id = "email" size = "25"><td>
+		</tr>
+		<tr>				
+			<td><label> Phone number (optional):</label></td>
+			<td><input type = "tel" placeholder = "+XXX - XXX - XXXX" pattern = "\+[0-9]{3}-[0-9]{3}-[0-9]{7}" id = "phone number" size = "25"></td>
+		</tr>
+		<tr>
+			<td><p> How satisfied are you by the results?</p> </td>
+			
+			<td><input type = "radio" name = "satisfaction" value = "very satisfied" > Very satisfied
+			<input type = "radio" name = "satisfaction" value = "satisfied"> Satisfied
+			<input type = "radio" name = "satisfaction" value = "moderately satisfied"> Moderately satisfied
+			<input type = "radio" name = "satisfaction" value = "not satisfied"> Not satisfied</td>
+		</tr>	
+		<tr>	
+			
+			<td><p> Rate your overall experience:</p></td>
+			<td>	0<input type = "range" id = "experience"
+				min = "0"
+				max = "10"
+				value = "5">10 </td>
+		</tr>
+		<tr>	
+			<td><label> Additional comments: </label></td>
+			<td><textarea id = "commnets" name = "comments" rows = "3" cols = "25" > </textarea></td>
+		</tr>
+		<tr>
+			<td><input type = "submit" value = "Submit">
+			<input type = "reset" value = "Clear"></td>
+	    </tr>
+	</table>
+			
+</body>
+
+</html>
+		
+		
