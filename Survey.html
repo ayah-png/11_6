@@ -5,42 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Survey</title>
 </head>
+<main class ="main-section">
 <body>
-    <h1>Style Preferences Survey</h1>
-        
-        <form action="/submit-survey" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br>
+    <div class="survey-form">
+        <h1>Style Preferences Survey</h1>
+            
+            <form action="/submit-survey" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
 
-            <label for="style-type">Preferred Style Type:</label>
-            <select id="style-type" name="style-type" required>
-                <option value="casual">Casual</option>
-                <option value="formal">Formal</option>
-                <option value="sporty">Sporty</option>
-                <option value="vintage">Vintage</option>
-                <option value="modern">Modern</option>
-            </select><br>
+                <label for="style-type">Preferred Style Type:</label>
+                <select id="style-type" name="style-type" required>
+                    <option value="casual">Casual</option>
+                    <option value="formal">Formal</option>
+                    <option value="sporty">Sporty</option>
+                    <option value="vintage">Vintage</option>
+                    <option value="modern">Modern</option>
+                </select><br>
 
-            <label for="favorite-color">Favorite Color:</label>
-            <select id="favorite-color" name="favorite-color" required>
-                <option value="red">Red</option>
-                <option value="blue">Blue</option>
-                <option value="green">Green</option>
-                <option value="yellow">Yellow</option>
-                <option value="black">Black</option>
-                <option value="white">White</option>
-            </select><br>
+                <label for="favorite-color">Favorite Color:</label>
+                <select id="favorite-color" name="favorite-color" required>
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="green">Green</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="black">Black</option>
+                    <option value="white">White</option>
+                </select><br>
 
-            <label for="fashion-icons">Who is your fashion icon?</label>
-            <input type="text" id="fashion-icons" name="fashion-icons"><br>
+                <label for="fashion-icons">Who is your fashion icon?</label>
+                <input type="text" id="fashion-icons" name="fashion-icons"><br>
 
-            <label for="comments">Additional Comments:</label><br>
-            <textarea id="comments" name="comments" rows="4"></textarea><br>
+                <label for="comments">Additional Comments:</label><br>
+                <textarea id="comments" name="comments" rows="6" cols="70"></textarea><br><br>
 
-            <button type="submit">Submit Survey</button>
-        </form>
+                <button type="submit">Submit Survey</button>
+            </form>
+        </div>
 </body>
+</main>
 </html>
