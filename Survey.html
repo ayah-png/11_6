@@ -6,54 +6,164 @@
     <link rel = "stylesheet" type = "text/css" href = "stylesheet.css" />
     <title>Survey</title>
 </head>
-<main class ="main-section">
+
 <body>
-    
-    <header>
-        <a id="top"></a>
 
-        <h1 class="page-name"">Style Preferences Survey</h1>
-    </header>
-
-    <nav id="main-nav">
+    <nav >
         <ul>
-          <li id="nav-home"><a href="index.html">Home</a></li>
-          <li id="nav-survey"><a href="Survey.html">Survey</a></li>
-          <li id="nav-gallery"><a href="Gallery.html">Gallery</a></li>
-          <li id="nav-contact"><a href="Contact%20Us.html">Contact Us</a></li>
-          <li id="nav-feedback"><a href="User%20Feedback.html">User Feedback</a></li>
+          <li ><a href="home.html">Home</a></li>
+          <li ><a href="Survey.html">Survey</a></li>
+          <li ><a href="Gallery.html">Gallery</a></li>
+          <li ><a href="Contact%20Us.html">Contact Us</a></li>
+          <li ><a href="User%20Feedback.html">User Feedback</a></li>
         </ul>
       </nav>
-    <div class="survey-form">
 
-                <label for="style-type">Preferred Style Type:</label>
-                <select id="style-type" name="style-type" required>
-                    <option value="casual">Casual</option>
-                    <option value="formal">Formal</option>
-                    <option value="sporty">Sporty</option>
-                    <option value="vintage">Vintage</option>
-                    <option value="modern">Modern</option>
-                </select><br>
+      
+    <main class="main-section">
+        <div class="survey-form">
+            <h1>Style Preferences Survey</h1>
+            <form id="surveyForm">
+                <!-- Question 1: Preferred Style -->
+                <div class="question">
+                    <label for="preferred-style">What is your preferred style?</label>
+                    <select id="preferred-style" name="preferred-style" class="styled-select" onchange="showColorQuestion()" required>
+                        <option value="">-- Select a Style --</option>
+                        <option value="casual">Casual</option>
+                        <option value="formal">Formal</option>
+                        <option value="sporty">Sporty</option>
+                        <option value="bohemian">Bohemian</option>
+                        <option value="minimalist">Minimalist</option>
+                        <option value="trendy">Trendy</option>
+                    </select>
+                </div>
 
-                <label for="favorite-color">Favorite Color:</label>
-                <select id="favorite-color" name="favorite-color" required>
-                    <option value="red">Red</option>
-                    <option value="blue">Blue</option>
-                    <option value="green">Green</option>
-                    <option value="yellow">Yellow</option>
-                    <option value="black">Black</option>
-                    <option value="white">White</option>
-                </select><br>
+                <div class="question hidden" id="color-question">
+                    <label for="color-palette">Which color palette do you prefer?</label>
+                    <select id="color-palette" name="color-palette" class="styled-select" required>
+                        <option value="">-- Select a Color Palette --</option>
+                    </select>
+                </div>
 
-                <label for="fashion-icons">Who is your fashion icon?</label>
-                <input type="text" id="fashion-icons" name="fashion-icons"><br>
-
-                <label for="comments">Additional Comments:</label><br>
-                <textarea id="comments" name="comments" rows="6" cols="70"></textarea><br><br>
-
-                <button type="submit">Submit Survey</button>
+                <button type="button" class="submit-button" onclick="submitSurvey()">Submit</button>
             </form>
         </div>
+
+        <div id="style-match" class="hidden">
+            <p id="match-caption" class="match-caption">This is your match!!</p>
+            <img id="match-image" src="" alt="Style Match" class="match-image" />
+            <p id="match-message" class="match-message"></p>
+        </div>
+        
+        
+    </main>
+
+    <script>
+        // JavaScript to handle dynamic question logic
+        function showColorQuestion() {
+    const selectedStyle = document.getElementById("preferred-style").value;
+    const colorQuestion = document.getElementById("color-question");
+    const colorPalette = document.getElementById("color-palette");
+
+    if (!selectedStyle) {
+        colorQuestion.classList.add("hidden"); // Ensure it's hidden if no style is selected
+        return;
+    }
+
+    // Clear existing options
+    colorPalette.innerHTML = '<option value="">-- Select a Color Palette --</option>';
+
+    // Add options based on selected style
+    if (selectedStyle === "casual") {
+        colorPalette.innerHTML += `
+            <option value="brown">Brown</option>
+             <option value="pink">Pink</option>
+
+        `;
+    } else if (selectedStyle === "formal") {
+        colorPalette.innerHTML += `
+            <option value="dark">Black</option>
+        `;
+    } else if (selectedStyle === "sporty") {
+        colorPalette.innerHTML += `
+            <option value="Blue">Blue</option>
+            <option value="Black">Black& White</option>
+        `;
+    } else if (selectedStyle === "bohemian") {
+        colorPalette.innerHTML += `
+            <option value="earth-tones">Earth Tones</option>
+        `;
+    } else if (selectedStyle === "minimalist") {
+        colorPalette.innerHTML += `
+            <option value="neutral">Black</option>
+        `;
+    } else if (selectedStyle === "trendy") {
+        colorPalette.innerHTML += `
+            <option value="bright">Light Blue</option>
+            <option value="dark">Pink (Floral)</option>
+        `;
+    }
+
+    // Show the color question
+    colorQuestion.classList.remove("hidden");
+}
+function submitSurvey() {
+    const selectedStyle = document.getElementById("preferred-style").value;
+    const selectedColor = document.getElementById("color-palette").value;
+
+    if (!selectedStyle || !selectedColor) {
+        alert("Please select both style and color!");
+        return;
+    }
+
+    // Call the function to show the style match
+    showStyleMatch(selectedStyle, selectedColor);
+}
+function showStyleMatch(style, color) {
+    const styleMatch = document.getElementById("style-match");
+    const matchImage = document.getElementById("match-image");
+    const matchCaption = document.getElementById("match-caption");
+    const matchMessage = document.getElementById("match-message");
+
+    // Map style and color combinations to images and messages
+    const styleMatchData = {
+        casual: {
+            brown: { image: "images/09101436687-p.webp", message: "Casual Style in Brown!" },
+            pink: { image: "images/cadigan.jpg", message: "Casual Style in Pink!" },
+        },
+        formal: {
+            dark: { image: "images/formal.webp", message: "Formal Black Outfit!" },
+        },
+        sporty: {
+            blue: { image: "images/sporty.webp", message: "Sporty Look in Blue!" },
+            black: { image: "images/sport2.webp", message: "Sporty Black & White!" },
+        },
+        bohemian: {
+            "earth-tones": { image: "images/bohemian.webp", message: "Bohemian Earth Tones!" },
+        },
+        minimalist: {
+            neutral: { image: "images/minimalist.jpg", message: "Minimalist Black Outfit!" },
+        },
+        trendy: {
+            bright: { image: "images/jeans.webp", message: "Trendy Light Blue Look!" },
+            dark: { image: "images/floral.jpg", message: "Trendy Pink Floral Style!" },
+        },
+    };
+
+    const matchData = styleMatchData[style]?.[color.toLowerCase()];
+
+    if (matchData) {
+        matchImage.src = matchData.image;
+        matchMessage.textContent = matchData.message;
+        matchCaption.textContent = "This is your match!!";
+        styleMatch.classList.remove("hidden");
+    } else {
+        matchMessage.textContent = "No match found for your selection.";
+        styleMatch.classList.remove("hidden");
+    }
+}
+
+    </script>
+
 </body>
-</main>
 </html>
