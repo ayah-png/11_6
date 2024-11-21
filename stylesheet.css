@@ -124,7 +124,7 @@ header {
     color: #333;
 }
 
-.header-description {
+p {
     font-size: 1.3rem;
     max-width: 700px;
     margin: 0 auto;
