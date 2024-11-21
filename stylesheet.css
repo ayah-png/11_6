@@ -2,7 +2,13 @@
         body {
 				font-family:  candara, sans-serif ;
 				background-color: #FFF8E8;
-             }			
+		
+             }	
+
+       body::selection {
+				    background-color: #352e7e;
+				    color: #fff;
+				}
 		
 /*
 	 .home a { color: #37AFE1; }
