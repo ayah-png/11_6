@@ -7,82 +7,114 @@
 	 
 	 .home a:visited { color: purple;}
 */
-
-/* Survey Page */
+/* Main Section */
 .main-section {
     padding: 60px 20px;
     background-color: #fcfaf8;
-    }
-    .survey-form {
-    background-color:#fff8ed;
+}
+
+/* Survey Form */
+.survey-form {
+    background-color: white;
     padding: 40px;
     border-radius: 10px;
     width: 80%;
     max-width: 600px;
     margin: 50px auto;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    }
-    
-    .survey-form h1 {
+}
+
+.survey-form h1 {
     color: rgb(69, 19, 19);
     font-size: 2.2rem;
     font-weight: 600;
     margin-bottom: 20px;
     text-align: center;
-    }
-    
-    .survey-form label {
+}
+
+.survey-form label {
     color: #333;
     font-size: 1.2rem;
     font-weight: 500;
     margin-bottom: 10px;
     display: block;
-    }
-    
-    .survey-form .style-selection {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 20px;
-    }
-    
-    .survey-form img {
-    max-width: 100px;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .survey-form img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    
-    select, input {
+}
+.hidden {
+    display: none; /* Completely hides the element */
+}
+
+/* Dropdown Styling */
+.styled-select {
     width: 100%;
     padding: 12px;
     margin: 10px 0;
     border-radius: 5px;
     border: 1px solid #fcede6;
     background-color: #fff8ea;
-    }
-    
-    button {
+}
+
+/* Submit Button */
+.submit-button {
     padding: 15px 30px;
     background-color: #324873;
-    color:#fcfaf8;
+    color: #fcfaf8;
     border-radius: 30px;
     border: solid;
     font-size: 1.1rem;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-    
-    button:hover {
+}
+
+.submit-button:hover {
     background-color: #fcfaf8;
     color: #324873;
     transform: translateY(-2px);
-    }
+}
+/* The survey images map */
+#style-match {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#style-match img {
+    max-width: 20%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#style-match .match-message {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #333;
+}
+#style-match {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#match-caption {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #324873; /* Change the color to match your design */
+}
+
+#match-image {
+    max-width: 100px; /* Adjust the width of the image */
+    height: auto; 
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 10px 0; 
+}
+
+#match-message {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #333;
+}
 
 /* for the gallery */
 body {
