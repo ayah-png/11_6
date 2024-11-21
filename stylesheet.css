@@ -230,7 +230,7 @@ img {
     line-height: 1.6;
 }
 
-..back-to-top-container {
+.back-to-top-container {
     text-align: left;
     margin-top: auto; /* Push it to the bottom if inside a flex container */
 }
