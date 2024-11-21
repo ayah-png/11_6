@@ -6,11 +6,87 @@
     <title>Outfit Oracle!</title>
     
 	<link rel = "stylesheet" type = "text/css" href = "stylesheet.css" />
+	<script>
+        const slides = document.querySelectorAll(".slides img");
+        let slideIndex = 0;
+        let intervalId = null;
+
+        document.addEventListener("DOMContentLoaded", initializeSlider);
+
+        function initializeSlider(){
+            if(slides.length > 0){
+                slides[slideIndex].classList.add("displaySlide");
+                intervalId = setInterval(nextSlide, 5000);
+            }
+        }
+
+        function showSlide(index){
+            if(index >= slides.length){
+                slideIndex = 0;
+            }
+            else if(index < 0){
+                slideIndex = slides.length - 1;
+            }
+
+            slides.forEach(slide => {
+                slide.classList.remove("displaySlide");
+            });
+            slides[slideIndex].classList.add("displaySlide");
+        }
+
+        function prevSlide(){
+            clearInterval(intervalId);
+            slideIndex--;
+            showSlide(slideIndex);
+        }
+
+        function nextSlide(){
+            slideIndex++;
+            showSlide(slideIndex);
+        }
+    </script>
     <style>  
 	    ::selection {
 				    background-color: #FF87AB;
-				    color: #fff;
-		}
+				    color: #fff;}
+	    .slider{
+            position: relative;
+            width: 450px;
+            height: 700px;
+            margin: auto;
+            overflow: hidden;
+        }
+        .slider img{
+            width: 450px;
+            height: 700px;
+            display: none;
+        }
+        img.displaySlide{
+            display: block;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+        .slider button{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            padding: 10px 15px;
+            background-color: #f8e3f9;
+            color: #020410;
+            border-radius: 30%;
+            cursor: pointer;
+        }
+        .prev{
+            left: 0;
+        }
+        .next{
+            right: 0;
+        }
+        @keyframes fade {
+            from {opacity: .5}
+            to {opacity: 1}
+        }
     </style>
 </head>
 
@@ -35,8 +111,16 @@
       </nav>
 
 	<p>Fashion is not just about clothes, it's about how you present yourself. With the right outfit, you can express your personality and make a statement wherever you go.
-		   This website will help you make those crutial choices when it comes to clothing, take this <a class = "home" href = ""> simple survey </a> to get started. </p>
-
+		   This website will help you make those crucial choices when it comes to clothing, take this <a class = "home" href = ""> simple survey </a> to get started. </p>
+	<div class="slider">
+	        <div class="slides">
+	            <img class="slide" src="images/formal.webp" alt="Image #1">
+	            <img class="slide" src="images/floral.jpg" alt="Image #2">
+	            <img class="slide" src="images/sport2.webp" alt="Image #3">
+	        </div>
+        <button class="prev" onclick="prevSlide()">&#10094</button>
+        <button class="next" onclick="nextSlide()">&#10095</button>
+   	 </div>
 	</body>
 
 	 <footer id = "home">
