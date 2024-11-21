@@ -1,15 +1,5 @@
 
-        body {
-				font-family:  candara, sans-serif ;
-				background-color: #FFF8E8;
-		
-             }	
-
-       body::selection {
-				    background-color: #352e7e;
-				    color: #fff;
-				}
-		
+ 
 /*
 	 .home a { color: #37AFE1; }
 	 
@@ -101,6 +91,10 @@ body {
     color: #333;
     overflow-x: hidden;
 }
+ body::selection {
+				    background-color: #352e7e;
+				    color: #fff;
+		}
 
 header {
     text-align: center;
