@@ -244,9 +244,9 @@ footer {
     text-align: center;
     padding: 20px;
     font-size: 1rem;
-    position: absolute;
+  /*  position: absolute;
     bottom: 1px;
-    width: 100%;
+    width: 100%;*/
 	
 }
 
