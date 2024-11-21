@@ -91,10 +91,6 @@ body {
     color: #333;
     overflow-x: hidden;
 }
- ::selection {
-				    background-color: #352e7e;
-				    color: #fff;
-		}
 
 header {
     text-align: center;
