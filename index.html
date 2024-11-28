@@ -1,30 +1,30 @@
 <!DOCTYPE html>
-	<html lang="eng">
-	
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Outfit Oracle!</title>
-    
-	<link rel = "stylesheet" type = "text/css" href = "stylesheet.css" />
-	<script>
-	const slides = document.querySelectorAll(".slides .slide");
+    <link rel="stylesheet" type="text/css" href="stylesheet1.css" />
+    <script>
+        let slides;
         let slideIndex = 0;
         let intervalId = null;
 
-        document.addEventListener("DOMContentLoaded", initializeSlider);
+        document.addEventListener("DOMContentLoaded", () => {
+            slides = document.querySelectorAll(".slides .slide");
+            initializeSlider();
+        });
 
-        function initializeSlider(){
-            if(slides.length > 0){
+        function initializeSlider() {
+            if (slides.length > 0) {
                 slides[slideIndex].classList.add("displaySlide");
                 intervalId = setInterval(nextSlide, 5000);
             }
         }
 
-        function showSlide(index){
-            if(index >= slides.length){
+        function showSlide(index) {
+            if (index >= slides.length) {
                 slideIndex = 0;
-            }
-            else if(index < 0){
+            } else if (index < 0) {
                 slideIndex = slides.length - 1;
             }
 
@@ -34,104 +34,97 @@
             slides[slideIndex].classList.add("displaySlide");
         }
 
-        function prevSlide(){
+        function prevSlide() {
             clearInterval(intervalId);
             slideIndex--;
             showSlide(slideIndex);
         }
 
-        function nextSlide(){
+        function nextSlide() {
             slideIndex++;
             showSlide(slideIndex);
         }
     </script>
-    <style>  
-	    ::selection {
-				    background-color: #FF87AB;
-				    color: #fff;}
-	    .slider{
-            position: relative;
-            width: 450px;
-            height: 700px;
-            margin: auto;
-            overflow: hidden;}
-	    
-        .slider img{
-            width: 450px;
-            height: 700px;
-    	display: none !important;
-	}
-	    
-        img.displaySlide{
-            display: block;
-            animation-name: fade;
-            animation-duration: 1.5s;
-	display: block !important; 
-	}
+
+<style>  
+  ::selection {
+        background-color: #FF87AB;
+        color: #fff;}
+  .slider{
+        position: relative;
+        width: 450px;
+        height: 700px;
+        margin: auto;
+        overflow: hidden;}
+  
+    .slider img{
+        width: 450px;
+        height: 700px;
+  display: none !important;
+}
+  
+    img.displaySlide{
+        display: block;
+        animation-name: fade;
+        animation-duration: 1.5s;
+display: block !important; 
+}
 
 
-	    
-        .slider button{
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 2rem;
-            padding: 10px 15px;
-            background-color: #f8e3f9;
-            color: #020410;
-            border-radius: 30%;
-            cursor: pointer;
-        }
-        .prev{
-            left: 0;
-        }
-        .next{
-            right: 0;
-        }
-        @keyframes fade {
-            from {opacity: .5}
-            to {opacity: 1}
-        }
-    </style>
+  
+    .slider button{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2rem;
+        padding: 10px 15px;
+        background-color: #f8e3f9;
+        color: #020410;
+        border-radius: 30%;
+        cursor: pointer;
+    }
+    .prev{
+        left: 0;
+    }
+    .next{
+        right: 0;
+    }
+    @keyframes fade {
+        from {opacity: .5}
+        to {opacity: 1}
+    }
+</style>
 </head>
-
-<body id = "home">
-
-
-   <header>
+<body id="home">
+    <header>
         <a id="top"></a>
-
         <h1 class="page-name">Outfit Oracle</h1>
-        
     </header>
 
     <nav id="main-nav">
         <ul>
-          <li id="nav-home"><a href="index.html">Home</a></li>
-          <li id="nav-survey"><a href="Survey.html">Survey</a></li>
-          <li id="nav-gallery"><a href="Gallery.html">Gallery</a></li>
-          <li id="nav-contact"><a href="Contact%20Us.html">Contact Us</a></li>
-          <li id="nav-feedback"><a href="User%20Feedback.html">User Feedback</a></li>
+            <li id="nav-home"><a href="index.html">Home</a></li>
+            <li id="nav-survey"><a href="Survey.html">Survey</a></li>
+            <li id="nav-gallery"><a href="Gallery.html">Gallery</a></li>
+            <li id="nav-contact"><a href="Contact%20Us.html">Contact Us</a></li>
+            <li id="nav-feedback"><a href="User%20Feedback.html">User Feedback</a></li>
         </ul>
-      </nav>
+    </nav>
 
-	<p>Fashion is not just about clothes, it's about how you present yourself. With the right outfit, you can express your personality and make a statement wherever you go.
-		   This website will help you make those crucial choices when it comes to clothing, take this <a class = "home" href = ""> simple survey </a> to get started. </p>
-	<div class="slider">
-    <div class="slides">
-        <img class="slide" src="images/formal.webp" alt="Formal outfit">
-        <img class="slide" src="images/floral.jpg" alt="Floral outfit">
-	<img class="slide" src="images/jeans.jpg" alt="Jeans outfit">
+    <p>Fashion is not just about clothes, it's about how you present yourself. With the right outfit, you can express your personality and make a statement wherever you go. This website will help you make those crucial choices when it comes to clothing. Take this <a class="home" href="">simple survey</a> to get started.</p>
+
+    <div class="slider">
+        <div class="slides">
+            <img class="slide" src="images/formal.webp" alt="Formal outfit">
+            <img class="slide" src="images/floral.jpg" alt="Floral outfit">
+            <img class="slide" src="images/jeans.jpg" alt="Jeans outfit">
+        </div>
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
     </div>
-    <button class="prev" onclick="prevSlide()">&#10094;</button>
-    <button class="next" onclick="nextSlide()">&#10095;</button>
-</div>
 
-	</body>
-
-	 <footer id = "home">
-
-			<p class = "footer" >&copy; 2024 Outfit Oracle | All Rights Reserved</p>
-
-	</footer>
-
+    <footer id="home">
+        <p class="footer">&copy; 2024 Outfit Oracle | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
