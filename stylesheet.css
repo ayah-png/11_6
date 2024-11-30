@@ -270,6 +270,9 @@ img {
     color: #fff;
     text-decoration: none;
 }
+.slide{
+	width: 100%;
+}
 footer {
     background-color: #eed9c4;
     font-color:  #333;
