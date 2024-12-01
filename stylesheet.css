@@ -271,7 +271,7 @@ img {
     text-decoration: none;
 }
 .slide{
-	width: 100%;
+	max-width: 100%;
 }
 footer {
     background-color: #eed9c4;
