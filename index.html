@@ -19,6 +19,7 @@
                 slides[slideIndex].classList.add("displaySlide");
                 intervalId = setInterval(nextSlide, 5000);
             }
+              randomQuote();
         }
 
         function showSlide(index) {
@@ -44,6 +45,44 @@
             slideIndex++;
             showSlide(slideIndex);
         }
+         var content;
+            var date;
+            date = new Date();
+            var time = date.getHours();
+
+            if (time < 12)
+            {
+                content = document.writeln("<span> Good Morning! </span>");
+            }
+
+            else if (time <= 18)
+            {
+                content = document.writeln("<span> Good Evening! </span>"); 
+            }
+            else
+            {
+                content = document.writeln("<span> Good Afternoon! </span>");
+            }
+
+                content += document.write("<br> <span> Current time: " + date + "</span> ");
+
+                document.getElementById("date").innerHTML = content;      
+
+
+        function randomQuote() {
+            var tips = [
+                "Accessories can be the difference between a statement and a boring outfit!",
+                "Find the style that is true to yourself, your comfort matters.",
+                "Layer your necklaces! Try contrasting styles.",
+                "Find a good tailor that knows your taste and preferences.",
+                "Loose with tight always works!",
+                "Have a stylized board with all of your style preferences for inspiration!"
+            ];
+            var index = Math.floor(Math.random() * tips.length);
+            var quote = tips[index];
+            document.getElementById("tips").innerHTML = quote;
+        }
+
     </script>
 
 <style>  
@@ -96,11 +135,15 @@ display: block !important;
 </style>
 </head>
 <body id="home">
+      <audio id="audio" class = "play" autoplay loop>
+        <source src="audio/backgroundmusic.mp3" type="audio/mpeg">
+        <source src="audio/backgroundmusic.ogg" type="audio/ogg">
+        Your browser does not support this audio file, if you want to listen to this background music, please try another browser.
+      </audio> 
     <header>
         <a id="top"></a>
         <h1 class="page-name">Outfit Oracle</h1>
     </header>
-
     <nav id="main-nav">
         <ul>
             <li id="nav-home"><a href="index.html">Home</a></li>
@@ -111,8 +154,11 @@ display: block !important;
         </ul>
     </nav>
 
-    <p>Fashion is not just about clothes, it's about how you present yourself. With the right outfit, you can express your personality and make a statement wherever you go. This website will help you make those crucial choices when it comes to clothing. Take this <a class="home" href="">simple survey</a> to get started.</p>
+    <p  class="home">Fashion is not just about clothes, it's about how you present yourself. With the right outfit, you can express your personality and make a statement wherever you go. This website will help you make those crucial choices when it comes to clothing. Take this <a class="home" href="">simple survey</a> to get started.</p>
 
+    
+    <div class="tips" id="tips"></div>
+    
     <div class="slider">
         <div class="slides">
             <img class="slide" src="images/formal.webp" alt="Formal outfit">
