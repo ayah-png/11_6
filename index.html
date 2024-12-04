@@ -45,28 +45,35 @@
             slideIndex++;
             showSlide(slideIndex);
         }
-         var content;
-            var date;
-            date = new Date();
-            var time = date.getHours();
+        
+         function updateGreetingAndTime() {
+            var date = new Date();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var greeting;
 
-            if (time < 12)
-            {
-                content = document.writeln("<span> Good Morning! </span>");
+            if (minutes < 10) {
+                minutes = "0" + minutes;
             }
 
-            else if (time <= 18)
+            if (hours < 12) 
             {
-                content = document.writeln("<span> Good Evening! </span>"); 
-            }
-            else
+                greeting = "Good Morning!";
+            } 
+            else if (hours < 18) 
             {
-                content = document.writeln("<span> Good Afternoon! </span>");
+                greeting = "Good Afternoon!";
+            } 
+            else 
+            {
+                greeting = "Good Evening!";
             }
 
-                content += document.write("<br> <span> Current time: " + date + "</span> ");
+            var formattedTime = (hours % 12 || 12) + ":" + minutes + (hours >= 12 ? " PM" : " AM");
 
-                document.getElementById("date").innerHTML = content;      
+            var content = "<span>" + greeting + "</span> | <span>Current Time: " + formattedTime + "</span>";
+            document.getElementById("date").innerHTML = content;
+        }
 
 
         function randomQuote() {
@@ -131,6 +138,52 @@ display: block !important;
     @keyframes fade {
         from {opacity: .5}
         to {opacity: 1}
+
+         #date {
+            font-size: 2em;
+            text-align: center;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #444;
+        }
+
+        .home a {
+            display: inline-block;
+            background-color: #c9c1c9;
+            color: black;
+            padding: 8px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid white;
+        }
+
+        .home a:hover {
+            background-color: white;
+            color: #ff87ab;
+            border: 2px solid #ff87ab;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.8em;
+            color: #444;
+        }
+
+        .tips {
+            font-size: 3em;
+            text-align: left;
+            margin-top: 10px;
+            color: #444;
+            animation: colorChange 1s infinite;
+        }
+
+        @keyframes colorChange {
+            0% {color: #ff4500;}
+            50% {color: #ff87ab;}
+            100% {color: #020410;}
+        }
     }
 </style>
 </head>
@@ -154,10 +207,15 @@ display: block !important;
         </ul>
     </nav>
 
-    <p  class="home">Fashion is not just about clothes, it's about how you present yourself. With the right outfit, you can express your personality and make a statement wherever you go. This website will help you make those crucial choices when it comes to clothing. Take this <a class="home" href="">simple survey</a> to get started.</p>
+  <p>  <br> Fashion is not just about clothes; it's how you express yourself </p>
+    <p class="home">
+         Take this <a href="Survey.html">simple survey</a> to get started.
+    </p>
 
-    
+    <h2>Today's Fashion Tip</h2>
     <div class="tips" id="tips"></div>
+
+    <h2>Explor our special collaction✨</h2>
     
     <div class="slider">
         <div class="slides">
