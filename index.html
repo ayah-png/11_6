@@ -95,56 +95,64 @@
     </script>
 
 <style>  
-  ::selection {
-        background-color: #FF87AB;
-        color: #fff;}
-  .slider{
-        position: relative;
-        width: 350px;
-        height: 490px;
-        margin: auto;
-        overflow: hidden;}
-  
-    .slider img{
-        width: 350px;
-        height: 490px;
-  display: none !important;
-}
-  
-    img.displaySlide{
-        display: block;
-        animation-name: fade;
-        animation-duration: 1.5s;
-display: block !important; 
+    
+::selection {
+    background-color: #FF87AB;
+    color: #fff;
 }
 
+.slider {
+    position: relative;
+    width: 350px;
+    height: 490px;
+    margin: auto;
+    overflow: hidden;
+}
 
-  
-    .slider button{
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 2rem;
-        padding: 10px 15px;
-        background-color: #ffe8df;
-        color: #020410;
-        border-radius: 30%;
-        cursor: pointer;
-    }
-    .prev{
-        left: 0;
-    }
-    .next{
-        right: 0;
-    }
-    @keyframes fade {
-        from {opacity: .5}
-        to {opacity: 1}
+.slider img {
+    width: 350px;
+    height: 490px;
+    display: none !important;
+}
 
-       
+img.displaySlide {
+    display: block;
+    animation-name: fade;
+    animation-duration: 1.5s;
+    display: block !important;
+}
 
-        .home a {
-      display: inline-block;
+.slider button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    padding: 10px 15px;
+    background-color: #ffe8df;
+    color: #020410;
+    border-radius: 30%;
+    cursor: pointer;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+@keyframes fade {
+    from {
+        opacity: .5;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.home a {
+    display: inline-block;
     background-color: #c9c1c9;
     color: black;
     padding: 8px 10px;
@@ -155,24 +163,10 @@ display: block !important;
     transition: all 0.3s ease;
 }
 
-
 .home a:hover {
     background-color: white;
     color: #ff87ab;
-     border: 2px solid #ff87ab;
-        }
-
- h2 {
-text-align: center; 
-margin: 20px 0; 
- font-size: 1.8em; 
-    color: #444; 
-
-}
-
-@keyframes fade {
-    from {opacity: .5;}
-    to {opacity: 1;}
+    border: 2px solid #ff87ab;
 }
 
 #date {
@@ -183,7 +177,7 @@ margin: 20px 0;
 }
 
 .tips {
-    font-size: 1.2em; 
+    font-size: 1.2em;
     text-align: center;
     margin-top: 10px;
     color: #444;
@@ -191,11 +185,23 @@ margin: 20px 0;
 }
 
 @keyframes colorChange {
-    0% {color: #ff4500;}
-    50% {color: #ff87ab;}
-    100% {color: #020410;}
+    0% {
+        color: #ff4500;
+    }
+    50% {
+        color: #ff87ab;
+    }
+    100% {
+        color: #020410;
+    }
 }
 
+h2 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1.8em;
+    color: #444;
+}
 </style>
 </head>
 <body id="home">
