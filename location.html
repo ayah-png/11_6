@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Locations in Sharjah</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <link rel = "stylesheet" type = "text/css" href = "stylesheet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <style>
+        #map {
+            height: 600px; 
+            width: 90%;    
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+
+<header>
+    <a id="top"></a>
+
+    <h1 class ="page-name">Stores Locations in Sharjah<p>
+</header>
+
+<nav >
+    <ul>
+      <li ><a href="home.html">Home</a></li>
+      <li ><a href="Survey.html">Survey</a></li>
+      <li ><a href="Gallery.html">Gallery</a></li>
+      <li ><a href="location.html">Store Locations</a></li>
+      <li ><a href="User%20Feedback.html">User Feedback</a></li>
+    </ul>
+  </nav>
+
+<body>
+    <h1>Discover Top Fashion Locations in Sharjah – Plan Your Visit Today!</h1>
+    <div id="map"></div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+            var locations = [
+                { name: "Zara - Sahara Centre", lat: 25.319143, lng: 55.397083, address: "Sahara Centre, Al Nahda St, Sharjah" },
+                { name: "H&M - Sahara Centre", lat: 25.319543, lng: 55.396783, address: "Sahara Centre, Al Nahda St, Sharjah" },
+                { name: "Max Fashion - City Centre Sharjah", lat: 25.325123, lng: 55.391234, address: "City Centre Sharjah, Al Wahda St, Sharjah" },
+                { name: "Splash - City Centre Sharjah", lat: 25.325523, lng: 55.390934, address: "City Centre Sharjah, Al Wahda St, Sharjah" },
+                { name: "Levi's - City Centre Sharjah", lat: 25.325923, lng: 55.390634, address: "City Centre Sharjah, Al Wahda St, Sharjah" },
+                { name: "Brands For Less - Mega Mall", lat: 25.347890, lng: 55.405678, address: "Mega Mall, Immigration Rd, Sharjah" },
+                { name: "Charles & Keith - Mega Mall", lat: 25.348290, lng: 55.405378, address: "Mega Mall, Immigration Rd, Sharjah" },
+                { name: "Giordano - Sahara Centre", lat: 25.318743, lng: 55.396483, address: "Sahara Centre, Al Nahda St, Sharjah" },
+                { name: "LC Waikiki - Sahara Centre", lat: 25.318343, lng: 55.396183, address: "Sahara Centre, Al Nahda St, Sharjah" },
+                { name: "Matalan - Sahara Centre", lat: 25.317943, lng: 55.395883, address: "Sahara Centre, Al Nahda St, Sharjah" }
+            ];
+
+            var map = L.map('map', {
+                zoomControl: false,       // Disable zoom controls
+                scrollWheelZoom: false,   // Disable zooming with scroll wheel
+                doubleClickZoom: false,   // Disable zooming with double click
+                dragging: false           // Disable map dragging
+            });
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            var markers = locations.map(location => {
+                return L.marker([location.lat, location.lng])
+                    .bindPopup(`<b>${location.name}</b><br>${location.address}`)
+                    .addTo(map);
+            });
+
+            var bounds = L.latLngBounds(locations.map(location => [location.lat, location.lng]));
+            map.fitBounds(bounds, { padding: [50, 50] }); 
+        });
+
+
+    </script>
+
+
+<footer class="footer">
+
+
+    <p>&copy; 2024 Fashion Finder. All rights reserved.</p>
+</footer>
+</body>
+</html>
