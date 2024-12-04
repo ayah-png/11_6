@@ -12,6 +12,8 @@
         document.addEventListener("DOMContentLoaded", () => {
             slides = document.querySelectorAll(".slides .slide");
             initializeSlider();
+            updateGreetingAndTime(); 
+
         });
 
         function initializeSlider() {
@@ -139,52 +141,61 @@ display: block !important;
         from {opacity: .5}
         to {opacity: 1}
 
-         #date {
-            font-size: 2em;
-            text-align: center;
-            margin: 20px 0;
-            font-weight: bold;
-            color: #444;
-        }
+       
 
         .home a {
-            display: inline-block;
-            background-color: #c9c1c9;
-            color: black;
-            padding: 8px 10px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            border: 2px solid white;
+      display: inline-block;
+    background-color: #c9c1c9;
+    color: black;
+    padding: 8px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid white;
+    transition: all 0.3s ease;
+}
+
+
+.home a:hover {
+    background-color: white;
+    color: #ff87ab;
+     border: 2px solid #ff87ab;
         }
 
-        .home a:hover {
-            background-color: white;
-            color: #ff87ab;
-            border: 2px solid #ff87ab;
-        }
+ h2 {
+text-align: center; 
+margin: 20px 0; 
+ font-size: 1.8em; 
+    color: #444; 
 
-        h2 {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 1.8em;
-            color: #444;
-        }
+}
 
-        .tips {
-            font-size: 3em;
-            text-align: left;
-            margin-top: 10px;
-            color: #444;
-            animation: colorChange 1s infinite;
-        }
+@keyframes fade {
+    from {opacity: .5;}
+    to {opacity: 1;}
+}
 
-        @keyframes colorChange {
-            0% {color: #ff4500;}
-            50% {color: #ff87ab;}
-            100% {color: #020410;}
-        }
-    }
+#date {
+    font-size: 1em;
+    text-align: left;
+    font-weight: bold;
+    color: #444;
+}
+
+.tips {
+    font-size: 1.2em; 
+    text-align: center;
+    margin-top: 10px;
+    color: #444;
+    animation: colorChange 1s infinite;
+}
+
+@keyframes colorChange {
+    0% {color: #ff4500;}
+    50% {color: #ff87ab;}
+    100% {color: #020410;}
+}
+
 </style>
 </head>
 <body id="home">
@@ -193,9 +204,10 @@ display: block !important;
         <source src="audio/backgroundmusic.ogg" type="audio/ogg">
         Your browser does not support this audio file, if you want to listen to this background music, please try another browser.
       </audio> 
-    <header>
+   <header>
         <a id="top"></a>
         <h1 class="page-name">Outfit Oracle</h1>
+            <div id="date"></div>
     </header>
     <nav id="main-nav">
         <ul>
@@ -207,10 +219,10 @@ display: block !important;
         </ul>
     </nav>
 
-  <p> Fashion is not just about clothes; it's how you express yourself </p>
-    <p class="home">
-         Take this <a href="Survey.html">simple survey</a> to get started.
-    </p>
+  <p class="home">
+    Fashion is not just about clothes; it's how you express yourself. 
+    Take this <a href="Survey.html">simple survey</a> to get started.
+</p>
 
     <h2>Today's Fashion Tip</h2>
     <div class="tips" id="tips"></div>
