@@ -299,26 +299,6 @@ p.home{
     margin-top: 50px;
 }
 
-.tips
-{
-  background-image: linear-gradient(
-    -200deg,
-    #324873 12%,
-    #535297 30%,
-    #ff1361 67%,
-    #7e5ac6 100%
-  );
-  text-align: center;
-
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 2s linear infinite;
-  font-size: 2em;
-}
-
 @keyframes textclip {
   to {
     background-position: 150% center;
