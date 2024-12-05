@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Feedback & Contact Page</title>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+  <header>
+    <h1 class ="page-name">Contact Us</h1>
+  </header>
+  <nav >
+    <ul>
+      <li ><a href="index.html">Home</a></li>
+      <li ><a href="Survey.html">Survey</a></li>
+      <li ><a href="Gallery.html">Gallery</a></li>
+      <li ><a href="Contact%20Us.html">Locations</a></li>
+      <li ><a href="User%20Feedback.html">Contact Us</a></li>
+    </ul>
+  </nav>
+  <!-- Feedback Section -->
+
+    <div class="feedback-form">
+      <h1>FEEDBACK</h1>
+        <form>
+          <label for="feedback-name">Name:</label>
+          <input type="text" id="feedback-name" name="feedback-name" placeholder="Enter your Name">
+
+          <label for="feedback-email">Email:</label>
+          <input type="email" id="feedback-email" name="feedback-email" placeholder="Enter your Email">
+
+          <label for="feedback-comments">Your Feedback:</label>
+          <textarea id="feedback-comments" name="feedback-comments" rows="5" placeholder="Your Feedback"></textarea>
+          
+          <!-- Rating Section -->
+          <div class="rating-container">
+            <h3>How would you rate your overall satisfaction with our service?</h3>
+            <div id="emoji-container">
+              <p class="emoji" data-message="Thank you! We’re glad you’re very satisfied.">⭐</p>
+              <p class="emoji" data-message="Great! We’re happy that you’re satisfied.">😊</p>
+              <p class="emoji" data-message="We’re sorry to hear that you’re unsatisfied.">😐</p>
+              <p class="emoji" data-message="We’ll work hard to improve!">😞</p>
+            </div>
+            <div id="rating-message" class="rating-message"></div>
+          </div>
+          <input type="submit" class="submit-button" value="Submit feedback">
+        </form>
+  </div>
+
+  <div class="section">
+    <h1>Contact Information</h1>
+    <table border="0" cellspacing="0" cellpadding="10" style="width: 100%;">
+      <tr>
+        <td width="50%" style="vertical-align: top; text-align: left;">
+          <br><br><br><br><h3>Call Us</h3>
+            <p>📞 055 286 0721</p>
+          <h3>Location</h3>
+            <p>📍Sharjah, Dubai</p>
+          <h3>Business Hours</h3>
+            <p>🕒 Monday – Friday: 10:00 AM – 8:00 PM<br> 🕒 Saturday & Sunday: Closed</p>
+        </td>
+        <td width="50%" style="vertical-align: top; text-align: left;">
+          <form>
+            <label for="contact-name">Name:</label>
+            <input type="text" id="contact-name" name="contact-name" placeholder="Enter your Name" style="width: 100%; padding: 10px; margin-bottom: 15px;">
+            
+            <label for="contact-email">Email:</label>
+            <input type="email" id="contact-email" name="contact-email" placeholder="Enter a valid email address" style="width: 100%; padding: 10px; margin-bottom: 15px;">
+            
+            <label for="contact-comments">Inquiry:</label>
+            <textarea id="contact-comments" name="contact-comments" rows="5" placeholder="Your message" style="width: 100%; padding: 10px; margin-bottom: 15px;"></textarea>
+            
+            <input type="submit" class="submit-button" value="Submit" style="cursor: pointer; font-weight: bold; padding: 12px; width: 100%;">
+          </form>
+        </td>
+      </tr>
+    </table>
+  </div>
+  
+
+  <script>
+    // JavaScript to handle emoji selection and message display in feedback section
+    const emojis = document.querySelectorAll('.emoji');
+    const ratingMessage = document.getElementById('rating-message');
+
+    emojis.forEach((emoji) => {
+      emoji.addEventListener('click', () => {
+        // Remove the 'selected' class from all emojis
+        emojis.forEach((e) => e.classList.remove('selected'));
+
+        // Add the 'selected' class to the clicked emoji
+        emoji.classList.add('selected');
+
+        // Display the corresponding message
+        ratingMessage.textContent = emoji.getAttribute('data-message');
+      });
+    });
+  </script>
+</body>
+</html>
