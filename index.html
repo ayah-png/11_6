@@ -49,35 +49,50 @@
         }
         
          function updateGreetingAndTime() {
-            var date = new Date();
-            var hours = date.getHours();
-            var minutes = date.getMinutes();
-            var greeting;
+    var date = new Date();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var greeting;
 
-            if (minutes < 10) {
-                minutes = "0" + minutes;
-            }
+    // Ensure minutes are always two digits
+    if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
 
-            if (hours < 12) 
-            {
-                greeting = "Good Morning!";
-            } 
-            else if (hours < 18) 
-            {
-                greeting = "Good Afternoon!";
-            } 
-            else 
-            {
-                greeting = "Good Evening!";
-            }
+    if (hours < 12) {
+        greeting = "Good Morning!";
+    } 
+    else if (hours < 18) 
+    {
+        greeting = "Good Afternoon!";
+    } else 
+    {
+        greeting = "Good Evening!";
+    }
 
-            var formattedTime = (hours % 12 || 12) + ":" + minutes + (hours >= 12 ? " PM" : " AM");
+    var twelveHourFormat;
+    if (hours === 0) 
+    
+    {
+        twelveHourFormat = 12; 
+    } else if (hours > 12)
+    
+    {
+        twelveHourFormat = hours - 12; 
+    } 
+    
+    else 
+    {
+        twelveHourFormat = hours;
+    }
 
-            var content = "<span>" + greeting + "</span> | <span>Current Time: " + formattedTime + "</span>";
-            document.getElementById("date").innerHTML = content;
-        }
+    var period = hours >= 12 ? "PM" : "AM";
 
+    var formattedTime = twelveHourFormat + ":" + minutes + " " + period;
 
+    var content = `<span>${greeting}</span> | <span>Current Time: ${formattedTime}</span>`;
+    document.getElementById("date").innerHTML = content;
+}
         function randomQuote() {
             var tips = [
                 "Accessories can be the difference between a statement and a boring outfit!",
